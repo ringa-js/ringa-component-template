@@ -1,0 +1,8 @@
+@import '~ringa-fw-react/src/styles/themes/classic/variables';
+
+.home {
+  padding: $pad3;
+  overflow: auto;
+  width: calc(100% - #{$pad3 * 2});
+  height: calc(100% - #{$pad3 * 2} - 100px);
+}

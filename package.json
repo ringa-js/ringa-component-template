@@ -1,0 +1,92 @@
+{
+  "name": "ringa-component-template",
+  "version": "0.0.1",
+  "description": "Ringa JS Component Template",
+  "main": "./src/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "dev": "`npm bin`/webpack-dev-server --config ./config/webpack.config.dev.js",
+    "start": "npm run dev",
+    "build:harness": "rm -rf harness/dist && `npm bin`/webpack --progress --colors --config ./config/webpack.config.harness.prod.js",
+    "build:harness:test": "npm run build:harness && cd harness/dist && nws -z",
+    "build:harness:analyze": "rm -rf harness/dist && `npm bin`/webpack --progress --colors --config ./config/webpack.config.harness.prod.analyze.js",
+    "minorVersionAndBuildHarness": "npm run build:harness",
+    "build": "rm -rf dist && `npm bin`/webpack --progress --colors --config ./config/webpack.config.dist.js",
+    "build:analyze": "rm -rf dist && `npm bin`/webpack --progress --colors --config ./config/webpack.config.dist.analyze.js",
+    "build:all": "npm run build && npm run build:harness",
+    "release:major": "npm test && npm run build && npm version major && npm publish && git push --follow-tags",
+    "release:minor": "npm test && npm run build && npm version minor && npm publish && git push --follow-tags",
+    "release:patch": "npm test && npm run build && npm version patch && npm publish && git push --follow-tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ringa-js/ringa-fw-react.git"
+  },
+  "keywords": [],
+  "authors": [
+    "Joshua Jung <joshua.p.jung@gmail.com>"
+  ],
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "cloner": "^0.4.0",
+    "deep-equal": "^1.0.1",
+    "flag-icon-css": "^2.8.0",
+    "hasharray": "^1.1.0",
+    "highlight.js": "^9.12.0",
+    "history": "^4.7.2",
+    "moment": "^2.19.2",
+    "owasp-password-strength-test": "^1.3.0",
+    "preact": "^8.2.6",
+    "preact-compat": "^3.17.0",
+    "react": "^16.1.1",
+    "react-body-classname": "^1.2.0",
+    "react-dom": "^16.1.1",
+    "react-ringa": "^0.1.8",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "ringa": "^0.3.0",
+    "ringa-fw-core": "0.0.7",
+    "ringa-fw-react": "^0.2.2",
+    "showdown": "^1.8.2",
+    "trie-search": "^1.0.9"
+  },
+  "devDependencies": {
+    "babel-core": "^6.7.6",
+    "babel-eslint": "^5.0.0",
+    "babel-jest": "^19.0.0",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.0.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^0.23.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^0.8.5",
+    "html-webpack-plugin": "2.30.1",
+    "imports-loader": "^0.6.5",
+    "node-sass": "^4.7.2",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
+    "postcss-loader": "^2.0.9",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^6.0.2",
+    "sass-module-importer": "^1.4.0",
+    "style-loader": "^0.13.2",
+    "uglifyjs-webpack-plugin": "^1.1.1",
+    "url-loader": "^0.5.8",
+    "webpack": "^3.8.1",
+    "webpack-bundle-analyzer": "^2.9.1",
+    "webpack-dev-server": "^2.9.4"
+  },
+  "jest": {
+    "verbose": true,
+    "globals": {
+      "__DEV__": true
+    }
+  }
+}

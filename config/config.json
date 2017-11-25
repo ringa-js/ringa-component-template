@@ -1,0 +1,5 @@
+{
+  "harnessName": "My Component Template Harness",
+  "name": "My Components",
+  "artifactRoot": "my-component-template"
+}
